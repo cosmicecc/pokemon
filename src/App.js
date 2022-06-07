@@ -2,14 +2,17 @@ import {useState, useEffect} from 'react';
 import PokemonList from './components/PokemonList'
 import axios from 'axios';
 import Pagination from './components/Pagination';
+import SearchBox from './components/SearchBox';
+import RefreshButton from './components/RefreshButton';
 
 function App() {
   // Set up the initial state values.
   const [pokemon, setPokemon] = useState([]);
-  const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon');
+  const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=100');
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
 
   // Get the data from the api each time we change page.
   useEffect(() => {
@@ -37,14 +40,28 @@ function App() {
     }
   }
 
+  function handleSearch(e) {
+    setSearch(e.target.value)
+  }
+
+  function handleReset() {
+    setSearch('')
+  }
+
+  const filteredPokemon = pokemon.filter(pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase()))
+
   // Loading.
   if (loading) return "Loading..."
 
   return (
     <div className='app'>
-      <h1>Pokemon</h1>
+      <div className='search'>
+        <h1>Pokemon</h1>
+        <SearchBox handleSearch={handleSearch} value={search}/>
+        <RefreshButton handleReset={handleReset} />
+      </div>
       <div className='pokemon'>
-        <PokemonList pokemon={pokemon} />
+        <PokemonList pokemon={search ? filteredPokemon : pokemon} />
       </div>
       <div className='pagination'>
         {nextPageUrl && <Pagination name='next' paginationLinks={paginationLinks} icon='fa-arrow-right' />}

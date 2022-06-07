@@ -1,12 +1,38 @@
-@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+@import url("https://use.fontawesome.com/releases/v6.0.0/css/all.css");
 
 * {
     font-family: 'Kdam Thmor Pro', sans-serif;
+}
+img {
+    max-width: 100px;
+    max-height: 100px;
 }
 .app {
     max-width: 700px;
     color: rgb(53, 45, 48);
 }
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.search .search-box {
+    margin-left: auto;
+}
+.search-box {
+    display:inline-block;
+    position: relative
+}
+.search-box:after {
+    content: "\f002"; /* Tick */
+    font-family: "Font Awesome 5 Free"; 
+    font-weight:900;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+  }
 h1 { 
     margin: 10px 5px 10px 5px;
 }
@@ -26,6 +52,9 @@ h1 {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     background: rgba(2,0,36, 10);
     background: linear-gradient(90deg, rgba(2,0,36,.3) 0%, rgba(108,9,121,.3) 35%, rgba(0,212,255,.3) 100%);
+}
+.mon>*:first-child {
+    margin-bottom: auto;
 }
 .mon:hover {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(108,9,121,1) 35%, rgba(0,212,255,1) 100%);
@@ -52,6 +81,21 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.input-round {
+    padding: 3px 0 3px 10px;
+    border-radius: 40px;
+    border: none;
+    background: rgba(108,9,121,.3);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.input-round:focus {
+    outline: none;
+    border: 1px solidrgba(108,9,121,1);
+}
+.refresh {
+    height: 25px;
+    margin-left: 10px;
 }
 .btn-round:hover {
     background: rgba(108,9,121,1);
