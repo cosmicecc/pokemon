@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
-}
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    font-family: 'Kdam Thmor Pro', sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+    max-width: 700px;
+    color: rgb(53, 45, 48);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 { 
+    margin: 10px 5px 10px 5px;
 }
-
-.App-link {
-  color: #61dafb;
+.pokemon-list {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mon {
+    flex: 0 0 30%;
+    flex-direction: column;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background: rgba(2,0,36, 10);
+    background: linear-gradient(90deg, rgba(2,0,36,.3) 0%, rgba(108,9,121,.3) 35%, rgba(0,212,255,.3) 100%);
+}
+.mon:hover {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(108,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    color: rgb(248, 242, 242);
+    cursor: pointer;
+}
+.pagination {
+    margin: 5px;
+    display: flex;
+    direction: rtl;
+}
+.pagination .right {
+    margin-left: auto;
+}
+.btn-round {
+    border-radius: 40px;
+    border: none;
+    background: rgba(108,9,121,.3);
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    overflow: hidden;
+    padding: 1px 8px;
+    transition-duration: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-round:hover {
+    background: rgba(108,9,121,1);
+    color: white;
+}
+.fa {
+    padding: 0 2px;
+}
+.right .btn-round {
+    flex-direction: row-reverse;
+}
+.icon {
+    margin: 5px 5px 5px 0;
+    background-color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    color: rgba(108,9,121,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .right .icon {
+     margin: 5px 0 5px 5px;
 }
