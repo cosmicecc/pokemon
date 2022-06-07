@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
-import PokemonList from './PokemonList'
+import PokemonList from './components/PokemonList'
 import axios from 'axios';
-import Pagination from './Pagination';
+import Pagination from './components/Pagination';
 
 function App() {
   // Set up the initial state values.
